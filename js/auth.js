@@ -19,12 +19,13 @@ export function initAuth({ onLoginSuccess, onLogout }) {
   const resetSuccessMsg = document.getElementById("resetSuccessMsg");
 
   auth.onAuthStateChanged((user) => {
-    if (user && AUTHORIZED_ADMIN_EMAILS.includes(user.email.toLowerCase())) {
+    const email = user && user.email ? user.email.toLowerCase() : "";
+    if (user && email && AUTHORIZED_ADMIN_EMAILS.includes(email)) {
       loginSection.classList.add("d-none");
       panelSection.classList.remove("d-none");
       authErrMsg.classList.add("d-none");
       onLoginSuccess(user);
-    } else if (user) {
+    } else if (user && !user.isAnonymous) {
       auth.signOut();
       authErrMsg.classList.remove("d-none");
       authErrMsg.textContent = "Prieiga apribota: paskyrai nesuteiktos administratoriaus teisės.";

@@ -8,13 +8,13 @@ const firebaseConfig = {
   measurementId: "G-9Z050BPHJ5"
 };
 
-if (!firebase.apps.length) {
+if (typeof firebase !== "undefined" && !firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-export const storage = firebase.storage();
+export const auth = (typeof firebase !== "undefined" && typeof firebase.auth === "function") ? firebase.auth() : null;
+export const db = (typeof firebase !== "undefined" && typeof firebase.firestore === "function") ? firebase.firestore() : null;
+export const storage = (typeof firebase !== "undefined" && typeof firebase.storage === "function") ? firebase.storage() : null;
 
 export const PRIMARY_SUPERADMIN_EMAIL = "azuolynasfilmfestival@gmail.com";
 

@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="06c15308-ea25-4737-9b50-13705638aa99" data-blockingmode="auto" type="text/javascript"></script>
+  <script>
+    if (window.location.hostname === "azuolynasinternationalfilmfestival.github.io") {
+      const cb = document.createElement("script");
+      cb.id = "Cookiebot";
+      cb.src = "https://consent.cookiebot.com/uc.js";
+      cb.setAttribute("data-cbid", "06c15308-ea25-4737-9b50-13705638aa99");
+      cb.setAttribute("data-blockingmode", "auto");
+      cb.type = "text/javascript";
+      document.head.appendChild(cb);
+    }
+    window.addEventListener("error", (e) => {
+      if (e.message === "Script error." || (e.filename && e.filename.includes("cookiebot"))) {
+        e.preventDefault();
+      }
+    });
+  </script>
   <meta charset="UTF-8">
   <link rel="preconnect" href="https://firebasestorage.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +34,10 @@
   <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da">
   <link rel="icon" type="image/webp" href="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media">
   <link rel="stylesheet" href="../style.css">
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -266,25 +283,31 @@
       if (e.key === "Escape") closeLightbox();
     });
 
-    db.collection("editions").doc("2026_en").onSnapshot((doc) => {
-      if (!doc.exists) return;
-      const data = doc.data();
+    if (db) {
+      db.collection("editions").doc("2026_en").onSnapshot((doc) => {
+        if (!doc.exists) return;
+        const data = doc.data();
 
-      if (data.title) document.getElementById("dynTitle").textContent = data.title;
-      if (data.date) document.getElementById("dynDate").textContent = data.date;
-      if (data.subtitle) document.getElementById("dynSub").textContent = data.subtitle;
-      if (data.story) document.getElementById("dynStory").textContent = data.story;
-      if (data.heroImage) {
-        document.getElementById("editionHeroSection").style.backgroundImage = `url('${data.heroImage}')`;
-      }
-      if (data.videoUrl) {
-        const wrap = document.getElementById("editionPlayerWrap");
-        let embed = data.videoUrl.trim();
-        if (embed.includes("watch?v=")) embed = embed.replace("watch?v=", "embed/");
-        else if (embed.includes("youtu.be/")) embed = embed.replace("youtu.be/", "www.youtube.com/embed/");
-        wrap.innerHTML = `<iframe src="${embed}" allowfullscreen class="embed-media"></iframe>`;
-      }
-    });
+        if (data.title) document.getElementById("dynTitle").textContent = data.title;
+        if (data.date) document.getElementById("dynDate").textContent = data.date;
+        if (data.subtitle) document.getElementById("dynSub").textContent = data.subtitle;
+        if (data.story) document.getElementById("dynStory").textContent = data.story;
+        if (data.heroImage) {
+          document.getElementById("editionHeroSection").style.backgroundImage = `url('${data.heroImage}')`;
+        }
+        if (data.videoUrl) {
+          const wrap = document.getElementById("editionPlayerWrap");
+          if (wrap) {
+            let embed = data.videoUrl.trim();
+            if (embed.includes("watch?v=")) embed = embed.replace("watch?v=", "embed/");
+            else if (embed.includes("youtu.be/")) embed = embed.replace("youtu.be/", "www.youtube.com/embed/");
+            wrap.innerHTML = `<iframe src="${embed}" allowfullscreen class="embed-media"></iframe>`;
+          }
+        }
+      }, (err) => {
+        console.warn("Edition fetch note:", err.message);
+      });
+    }
   </script>
 </body>
 </html>
