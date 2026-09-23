@@ -9,10 +9,12 @@
   <meta property="og:description" content="Official platform and submissions portal for the Ąžuolynas International Students Film Festival.">
   <script>
     const userLang = (navigator.language || navigator.userLanguage || "lt").toLowerCase();
+    const search = window.location.search || "";
+    const hash = window.location.hash || "";
     if (userLang.startsWith("en")) {
-      window.location.replace("en/index.html");
+      window.location.replace("en/index.html" + search + hash);
     } else {
-      window.location.replace("lt/index.html");
+      window.location.replace("lt/index.html" + search + hash);
     }
   </script>
 </head>
