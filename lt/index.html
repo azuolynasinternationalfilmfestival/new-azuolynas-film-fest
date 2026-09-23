@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="06c15308-ea25-4737-9b50-13705638aa99" data-blockingmode="auto" type="text/javascript"></script>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://firebasestorage.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ąžuolynas International Students Film Festival | Oficiali Paraiškų Platforma</title>
+  <meta name="description" content="„Ąžuolyno“ filmų festivalis pavadintas vieno iš Kauno lankytinų vietų garbei. Filmai iki 3 min., nufilmuoti telefonu ar planšete. Paraiškos priimamos iki 2026 m. balandžio 2 d.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://azuolynasinternationalfilmfestival.github.io/lt/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ąžuolynas International Students Film Festival">
+  <meta property="og:title" content="Ąžuolynas International Students Film Festival | Oficiali Paraiškų Platforma">
+  <meta property="og:description" content="Pateikite filmą iki 2026 m. balandžio 2 d. Festivalio atidarymas – 2026 m. balandžio 17 d.">
+  <meta property="og:url" content="https://azuolynasinternationalfilmfestival.github.io/lt/index.html">
+  <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="lt_LT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ąžuolynas International Students Film Festival">
+  <meta name="twitter:description" content="Tarptautinis mokinių filmų festivalis. Paraiškos iki 2026 m. balandžio 2 d.">
+  <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da">
+  <link rel="icon" type="image/webp" href="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Festival",
+    "name": "Ąžuolynas International Students Film Festival",
+    "alternateName": "Ąžuolyno Tarptautinis Mokinių Filmų Festivalis",
+    "description": "„Ąžuolyno“ filmų festivalis pavadintas vieno iš Kauno lankytinų vietų garbei, kurio papėdėje yra įsikūrusi mūsų studija.",
+    "startDate": "2026-04-17T15:00:00+03:00",
+    "endDate": "2026-04-17T18:00:00+03:00",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://azuolynasinternationalfilmfestival.github.io/"
+    },
+    "image": "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Ąžuolynas Film Festival Committee",
+      "email": "azuolynasfilmfestival@gmail.com",
+      "url": "https://azuolynasinternationalfilmfestival.github.io/"
+    }
+  }
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <a href="index.html" class="logo-wrap">
+        <img src="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media" alt="Ąžuolynas Fest" class="logo-img">
+        <span class="logo-text">Ąžuolynas Fest</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Apie festivalį</a></li>
+        <li><a href="#terms">Taisyklės</a></li>
+        <li><a href="#categories">Kategorijos & Prizai</a></li>
+        <li><a href="#editions">Metų Leidimai</a></li>
+        <li><a href="#archive">Retrospektyva</a></li>
+        <li id="navLinkResults" class="d-none"><a href="#results">Rezultatai</a></li>
+        <li id="navLinkVoting" class="d-none"><a href="#competition">Balsavimas</a></li>
+        <li id="navLinkScreening"><a href="#screening">Peržiūra</a></li>
+        <li id="navLinkSubmit"><a href="#submit">Registracija</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="index.html" class="lang-btn active">LT</a>
+        <a href="../en/index.html" class="lang-btn">EN</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="container">
+        <div class="hero-badge" id="dynHeroBadge">Tarptautinis Mokinių Filmų Festivalis</div>
+        <h1 class="hero-title">Ąžuolynas Film Festival</h1>
+        <p class="hero-about-text" id="dynAboutText">
+          „Ąžuolyno“ filmų festivalis pavadintas vieno iš Kauno lankytinų vietų – Ąžuolyno parko – garbei, kurio papėdėje yra įsikūrusi mūsų studija.
+        </p>
+
+        <div class="hero-topic-card">
+          <span class="hero-topic-label">Festivalio tema:</span>
+          <span class="hero-topic-val" id="dynTopic">„Neįprastas žvilgsnis į įprastus dalykus“</span>
+        </div>
+
+        <div class="meta-row">
+          <div class="meta-box">
+            <div class="meta-box-label">Paraiškų priėmimas</div>
+            <div class="meta-box-value" id="dynDates">Iki 2026 m. balandžio 2 d.</div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-box-label">Atidarymo ceremonija</div>
+            <div class="meta-box-value" id="dynEvent">2026 m. balandžio 17 d.</div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-box-label">Dalyviai</div>
+            <div class="meta-box-value" id="dynTarget">Mokiniai (10–18 m.)</div>
+          </div>
+        </div>
+
+        <div class="cta-flex">
+          <a href="#submit" id="heroSubmitBtn" class="btn-solid">Pateikti savo filmą</a>
+          <a href="#editions" class="btn-outline">FEST Metraščiai</a>
+          <a href="#competition" id="heroVoteBtn" class="btn-outline d-none">Balsuoti už filmus</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="editions" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Festivalio Metraštis</div>
+          <h2 class="section-heading">Oficialūs Festivalio Leidimai</h2>
+        </div>
+
+        <div class="editions-showcase-grid" id="editionsContainer">
+          <div class="edition-card-item">
+            <div class="edition-card-bg" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3458.jpeg?alt=media&token=224af1bd-25ff-494e-8136-fbf330d3ad5b');"></div>
+            <div class="edition-card-overlay"></div>
+            <div class="edition-card-details">
+              <span class="edition-card-badge">2026 Metų Edicija</span>
+              <h3 class="edition-card-title">FEST 2026</h3>
+              <div class="edition-card-date">2026 m. balandžio 17 d.</div>
+              <p class="edition-card-text">Kino šventė Kauno tarptautinėje gimnazijoje: net keturi žemynai viename ekrane! Sužinokite, kas laimėjo ir pamatykite ceremonijos akimirkas.</p>
+              <a href="azuolynas-fest-2026.html" class="btn-solid btn-full">Atverti FEST 2026 Apžvalgą</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Reglamentas</div>
+          <h2 class="section-heading">Dalyvavimo Sąlygos ir Taisyklės</h2>
+        </div>
+
+        <div class="content-card">
+          <ul class="rule-items">
+            <li>
+              <span class="rule-idx">1</span>
+              <span id="dynRule1">Filmas privalo būti nufilmuotas išmaniuoju telefonu arba planšete.</span>
+            </li>
+            <li>
+              <span class="rule-idx">2</span>
+              <span id="dynRule2">Filmo trukmė – griežtai iki 3 minučių.</span>
+            </li>
+            <li>
+              <span class="rule-idx">3</span>
+              <span id="dynRule3">Vienas dalyvis gali pateikti ne daugiau kaip vieną darbą.</span>
+            </li>
+          </ul>
+
+          <div class="policy-callout">
+            <p id="dynPolicyText">
+              Kadangi mums svarbi vaikų kūrybinė vizija ir jų saviraiška, darbai su dominuojančiu suaugusiųjų dalyvavimu festivalyje nepriimami. Pirmenybė bus teikiama filmams, kuriuos sukūrė tik patys vaikai.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Varžytuvės</div>
+          <h2 class="section-heading">Kategorijos ir Prizai</h2>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="content-card cat-border">
+            <div class="cat-label">I Kategorija</div>
+            <div class="cat-title" id="dynCat1Age">Nuo 10 iki 13 metų amžiaus</div>
+            <div class="cat-desc" id="dynCat1Desc">Pradedančiųjų kino kūrėjų vizualiniai ieškojimai ir autorinis pasakojimas.</div>
+          </div>
+
+          <div class="content-card cat-border">
+            <div class="cat-label">II Kategorija</div>
+            <div class="cat-title" id="dynCat2Age">Nuo 14 iki 18 metų amžiaus</div>
+            <div class="cat-desc" id="dynCat2Desc">Vyresniųjų moksleivių kinematografinė kalba, gilesnė dramaturgija ir savitas braižas.</div>
+          </div>
+        </div>
+
+        <div class="awards-panel">
+          <div class="awards-panel-title">Oficialios nominacijos ir prizai</div>
+          <div class="awards-chips">
+            <span class="chip">1-oji Vieta</span>
+            <span class="chip">2-oji Vieta</span>
+            <span class="chip">3-ioji Vieta</span>
+            <span class="chip">Žiūrovų Simpatijų Prizas</span>
+          </div>
+
+          <div class="prize-showcase" onclick="openLightboxFromSrc('https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da', 'Oficialūs festivalio apdovanojimai ir laureatų statulėlės')">
+            <img id="dynPrizeImg" src="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da" alt="Festivalio Prizai" loading="lazy">
+            <div class="prize-caption">Oficialūs festivalio apdovanojimai ir laureatų statulėlės</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Retrospektyva</div>
+          <h2 class="section-heading">Festivalio Istorija (2024–2025)</h2>
+        </div>
+
+        <div class="archive-media-grid" id="archiveVideosContainer"></div>
+        <div class="archive-media-grid" id="archivePhotosContainer"></div>
+      </div>
+    </section>
+
+    <section id="results" class="section-block d-none">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Laureatai</div>
+          <h2 class="section-heading">Festivalio Rezultatai</h2>
+        </div>
+        <div id="winnersListContainer" class="results-grid"></div>
+      </div>
+    </section>
+
+    <section id="competition" class="section-block d-none">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Dalyviai ir Balsavimas</div>
+          <h2 class="section-heading">Konkursinė Programa</h2>
+        </div>
+        <div id="filmsGalleryContainer" class="films-grid"></div>
+      </div>
+    </section>
+
+    <section id="screening" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Renginio vaizdo įrašas</div>
+          <h2 class="section-heading">Festivalio Peržiūra ir Rezultatai</h2>
+        </div>
+
+        <div class="player-card">
+          <div class="player-screen" id="screeningPlayerContainer">
+            <div class="player-idle" id="screeningPlaceholder">
+              <svg class="cinema-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+              <div class="player-idle-title" id="dynRecordingPlaceholder">Festivalio vaizdo įrašas bus patalpintas 2026 m. balandžio 17 d.</div>
+              <div class="player-idle-sub">Visi pateikti filmai ir komisijos verdiktas bus pasiekiami tiesiogiai šioje vietoje.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="submit" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Registracija</div>
+          <h2 class="section-heading">Pateikite Savo Filmą</h2>
+        </div>
+
+        <div class="form-sheet">
+          <div id="formSuccessDisplay" class="d-none success-checkmark-box">
+            <svg class="checkmark-svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="24"/>
+              <path class="checkmark-check" d="M14 27l8 8 16-16"/>
+            </svg>
+            <h3 style="color:var(--text-color); margin-bottom:8px;">Paraiška sėkmingai gauta!</h3>
+            <p style="color:var(--text-muted); font-size:0.92rem; max-width:480px; margin:0 auto 20px auto;">
+              Nuoširdžiai dėkojame. Jūsų filmas pasiekė festivalio organizatorių komandą. Į jūsų nurodytą el. paštą išsiųstas patvirtinimas.
+            </p>
+            <button type="button" class="btn-outline btn-sm" onclick="resetFormView()">Pateikti kitą paraišką</button>
+          </div>
+
+          <form id="submissionForm">
+            <div class="input-row">
+              <div class="input-cell">
+                <label for="participantName">Vardas ir Pavardė *</label>
+                <input type="text" id="participantName" class="field" placeholder="Vardenis Pavardenis" required>
+              </div>
+              <div class="input-cell">
+                <label for="participantEmail">El. pašto adresas *</label>
+                <input type="email" id="participantEmail" class="field" placeholder="vardas@pavyzdys.lt" required>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input-cell">
+                <label for="participantAge">Amžius (10–18 m.) *</label>
+                <input type="number" id="participantAge" min="10" max="18" class="field" required>
+              </div>
+              <div class="input-cell">
+                <label for="participantCategory">Kategorija *</label>
+                <select id="participantCategory" class="field" required>
+                  <option value="" disabled selected>Pasirinkite grupę</option>
+                  <option value="Category I (10-13)">I Kategorija (10-13 m.)</option>
+                  <option value="Category II (14-18)">II Kategorija (14-18 m.)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input-cell">
+                <label for="countryCity">Šalis ir Miestas *</label>
+                <input type="text" id="countryCity" class="field" placeholder="Lietuva, Kaunas" required>
+              </div>
+              <div class="input-cell">
+                <label for="institution">Mokykla arba studija</label>
+                <input type="text" id="institution" class="field" placeholder="Gimnazijos pavadinimas">
+              </div>
+            </div>
+
+            <div class="input-cell">
+              <label for="filmTitle">Filmo pavadinimas *</label>
+              <input type="text" id="filmTitle" class="field" placeholder="Originalus filmo pavadinimas" required>
+            </div>
+
+            <div class="input-cell">
+              <label for="deviceModel">Kameros / Įrenginio modelis *</label>
+              <input type="text" id="deviceModel" class="field" placeholder="pvz. iPhone 14 Pro, Samsung Galaxy Tab" required>
+            </div>
+
+            <div class="input-cell">
+              <label for="synopsis">Trumpas aprašymas / Idėja *</label>
+              <textarea id="synopsis" class="field" placeholder="Kaip filmas atskleidžia temą?" required></textarea>
+            </div>
+
+            <div class="input-cell">
+              <label>Vaizdo įrašo failas (MP4 / MOV / WEBM, iki 3 minučių) *</label>
+              <div class="drop-area" id="uploadZone">
+                <svg class="drop-icon-svg" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                <div class="drop-title">Pasirinkite arba įtempkite failą čia</div>
+                <div class="drop-sub">Trukmė automatiškai tikrinama (griežtai iki 180 s)</div>
+                <input type="file" id="videoFileInput" accept="video/mp4,video/quicktime,video/webm" required>
+              </div>
+              <div id="uploadFeedback" class="drop-alert"></div>
+              
+              <div class="bar-box" id="progressContainer">
+                <div class="bar-line">
+                  <div class="bar-fill" id="progressFill"></div>
+                </div>
+                <div id="progressStatus" class="bar-status-text">0%</div>
+              </div>
+            </div>
+
+            <div class="consent-list">
+              <label class="consent-line">
+                <input type="checkbox" required>
+                <span>Patvirtinu, kad filmas nufilmuotas išmaniuoju telefonu arba planšete.</span>
+              </label>
+              <label class="consent-line">
+                <input type="checkbox" required>
+                <span>Patvirtinu, kad filmo trukmė griežtai neviršija 3 minučių.</span>
+              </label>
+              <label class="consent-line">
+                <input type="checkbox" required>
+                <span>Patvirtinu, kad filmas sukurtas vaikų be dominuojančios suaugusiųjų pagalbos.</span>
+              </label>
+              <label class="consent-line">
+                <input type="checkbox" required>
+                <span>Patvirtinu, kad teikiu ne daugiau kaip vieną filmą.</span>
+              </label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-solid btn-full">
+              Pateikti Registraciją Į Festivalį
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="publicPreviewModal" class="modal-curtain">
+    <div class="modal-dialog">
+      <div class="modal-title-row">
+        <h3 id="publicModalTitle" class="modal-title">Filmo peržiūra</h3>
+        <button class="modal-close" onclick="closePublicModal()">&times;</button>
+      </div>
+      <video id="publicModalVideo" class="modal-video-frame" controls playsinline></video>
+      <div class="modal-details">
+        <p><strong>Režisierius:</strong> <span id="publicModalAuthor"></span></p>
+        <p><strong>Amžius ir kategorija:</strong> <span id="publicModalCategory"></span></p>
+        <p><strong>Miestas, šalis:</strong> <span id="publicModalLocation"></span></p>
+        <p><strong>Mokykla / Studija:</strong> <span id="publicModalInstitution"></span></p>
+        <p><strong>Kameros modelis:</strong> <span id="publicModalDevice"></span></p>
+        <p><strong>Trukmė:</strong> <span id="publicModalDuration"></span> s</p>
+        <p class="modal-synopsis-label">Sinopsis:</p>
+        <p id="publicModalSynopsis" class="modal-synopsis-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Nuotraukos peržiūra">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Uždaryti">&times;</button>
+    <button class="lightbox-btn lightbox-prev" onclick="stepLightbox(-1)" aria-label="Ankstesnė">
+      <svg class="lightbox-arrow-svg" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="lightbox-btn lightbox-next" onclick="stepLightbox(1)" aria-label="Kita">
+      <svg class="lightbox-arrow-svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    <div class="lightbox-content">
+      <div id="lightboxCounter" class="lightbox-counter"></div>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Peržiūra">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-wrap">
+          <div class="footer-brand-header">
+            <img src="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media" alt="Logo" class="footer-logo">
+            <span class="footer-name">Ąžuolynas Fest</span>
+          </div>
+          <p class="footer-tagline">Tarptautinis mokinių filmų festivalis. „Neįprastas žvilgsnis į įprastus dalykus“. Kūrybiškumas, autentiškumas ir jaunųjų režisierių balsas.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigacija</div>
+          <ul class="footer-nav-list">
+            <li><a href="#about">Apie festivalį</a></li>
+            <li><a href="#editions">Metų leidiniai (FEST)</a></li>
+            <li><a href="#terms">Dalyvavimo taisyklės</a></li>
+            <li><a href="#categories">Kategorijos & Prizai</a></li>
+            <li><a href="azuolynas-fest-2026.html">FEST 2026 puslapis</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Kontaktai</div>
+          <div class="footer-info-list">
+            <p>Kauno tarptautinė gimnazija (Ąžuolyno papėdėje)</p>
+            <p>El. paštas: <a href="mailto:azuolynasfilmfestival@gmail.com">azuolynasfilmfestival@gmail.com</a></p>
+            <p>Paraiškos: iki 2026 m. balandžio 2 d.</p>
+            <p>Ceremonija: 2026 m. balandžio 17 d.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 Ąžuolynas International Students Film Festival. Visos teisės saugomos.</span>
+        <span>Oficiali platforma: azuolynasinternationalfilmfestival.github.io</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../email-templates.js"></script>
+  <script>
+    let filmsCache = [];
+    let galleryPhotosCache = [];
+    let currentLightboxIdx = 0;
+
+    function showToast(message, type = "success") {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+      const toast = document.createElement("div");
+      toast.className = `toast toast-${type}`;
+      toast.textContent = message;
+      container.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add("show"));
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    function createMediaEmbed(url) {
+      if (!url) return "";
+      const cleanUrl = url.trim();
+      if (cleanUrl.includes("youtube.com") || cleanUrl.includes("youtu.be")) {
+        let embed = cleanUrl;
+        if (cleanUrl.includes("watch?v=")) embed = cleanUrl.replace("watch?v=", "embed/");
+        else if (cleanUrl.includes("youtu.be/")) embed = cleanUrl.replace("youtu.be/", "www.youtube.com/embed/");
+        return `<iframe src="${embed}" allowfullscreen class="embed-media"></iframe>`;
+      }
+      return `<video controls playsinline preload="metadata" src="${cleanUrl}" class="embed-media"></video>`;
+    }
+
+    auth.signInAnonymously().catch((err) => console.error(err));
+
+    db.collection("settings").doc("festival").onSnapshot((doc) => {
+      const d = doc.exists ? doc.data() : DEFAULT_CONTENT;
+      const data = d.lt || DEFAULT_CONTENT.lt;
+
+      const showVoting = d.showVoting === true;
+      const showResults = d.showResults === true;
+      const showScreening = d.showScreening !== false;
+      const showSubmit = d.showSubmit !== false;
+
+      const secVoting = document.getElementById("competition");
+      const navVoting = document.getElementById("navLinkVoting");
+      const heroVote = document.getElementById("heroVoteBtn");
+      if (secVoting) secVoting.classList.toggle("d-none", !showVoting);
+      if (navVoting) navVoting.classList.toggle("d-none", !showVoting);
+      if (heroVote) heroVote.classList.toggle("d-none", !showVoting);
+
+      const secResults = document.getElementById("results");
+      const navResults = document.getElementById("navLinkResults");
+      if (secResults) secResults.classList.toggle("d-none", !showResults);
+      if (navResults) navResults.classList.toggle("d-none", !showResults);
+
+      const secScreening = document.getElementById("screening");
+      const navScreening = document.getElementById("navLinkScreening");
+      if (secScreening) secScreening.classList.toggle("d-none", !showScreening);
+      if (navScreening) navScreening.classList.toggle("d-none", !showScreening);
+
+      const secSubmit = document.getElementById("submit");
+      const navSubmit = document.getElementById("navLinkSubmit");
+      const heroSubmit = document.getElementById("heroSubmitBtn");
+      if (secSubmit) secSubmit.classList.toggle("d-none", !showSubmit);
+      if (navSubmit) navSubmit.classList.toggle("d-none", !showSubmit);
+      if (heroSubmit) heroSubmit.classList.toggle("d-none", !showSubmit);
+
+      document.getElementById("dynHeroBadge").textContent = data.heroBadge || DEFAULT_CONTENT.lt.heroBadge;
+      if (document.getElementById("dynAboutText")) {
+        document.getElementById("dynAboutText").textContent = data.aboutText || DEFAULT_CONTENT.lt.aboutText;
+      }
+      document.getElementById("dynTopic").textContent = `„${data.topic || DEFAULT_CONTENT.lt.topic}“`;
+      document.getElementById("dynDates").textContent = data.datesSubmissions || DEFAULT_CONTENT.lt.datesSubmissions;
+      document.getElementById("dynEvent").textContent = data.dateEvent || DEFAULT_CONTENT.lt.dateEvent;
+      document.getElementById("dynTarget").textContent = data.targetAudience || DEFAULT_CONTENT.lt.targetAudience;
+
+      if (data.rule1) document.getElementById("dynRule1").textContent = data.rule1;
+      if (data.rule2) document.getElementById("dynRule2").textContent = data.rule2;
+      if (data.rule3) document.getElementById("dynRule3").textContent = data.rule3;
+      if (data.policyText && document.getElementById("dynPolicyText")) {
+        document.getElementById("dynPolicyText").textContent = data.policyText;
+      }
+      if (data.cat1Age) document.getElementById("dynCat1Age").textContent = data.cat1Age;
+      if (data.cat1Desc) document.getElementById("dynCat1Desc").textContent = data.cat1Desc;
+      if (data.cat2Age) document.getElementById("dynCat2Age").textContent = data.cat2Age;
+      if (data.cat2Desc) document.getElementById("dynCat2Desc").textContent = data.cat2Desc;
+
+      const prizeImg = document.getElementById("dynPrizeImg");
+      if (prizeImg) {
+        prizeImg.src = d.prizesPhotoUrl || "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3463.jpeg?alt=media&token=af7892ca-e78e-4198-b686-e0181472e8da";
+      }
+
+      renderArchiveSection(d);
+
+      const playerWrap = document.getElementById("screeningPlayerContainer");
+      const recUrl = (d.recordingVideoUrl || "").trim();
+
+      if (recUrl) {
+        playerWrap.innerHTML = createMediaEmbed(recUrl);
+      } else {
+        const ph = data.recordingPlaceholder || DEFAULT_CONTENT.lt.recordingPlaceholder;
+        document.getElementById("dynRecordingPlaceholder").textContent = ph;
+      }
+    });
+
+    db.collection("editions").onSnapshot((snapshot) => {
+      const container = document.getElementById("editionsContainer");
+      if (!container) return;
+
+      const editionsList = [];
+      snapshot.forEach((doc) => {
+        editionsList.push({ id: doc.id, ...doc.data() });
+      });
+
+      if (editionsList.length === 0) return;
+
+      container.innerHTML = editionsList.map((ed) => `
+        <div class="edition-card-item">
+          <div class="edition-card-bg" style="background-image: url('${ed.heroImage || 'https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3458.jpeg?alt=media&token=224af1bd-25ff-494e-8136-fbf330d3ad5b'}');"></div>
+          <div class="edition-card-overlay"></div>
+          <div class="edition-card-details">
+            <span class="edition-card-badge">${ed.year || 'Festivalis'} Edicija</span>
+            <h3 class="edition-card-title">${ed.title || ('FEST ' + ed.year)}</h3>
+            <div class="edition-card-date">${ed.date || ''}</div>
+            <p class="edition-card-text">${ed.subtitle || ''}</p>
+            <a href="${ed.pageUrl || ('azuolynas-fest-' + ed.year + '.html')}" class="btn-solid btn-full">Atverti ${ed.title || 'FEST'} Apžvalgą</a>
+          </div>
+        </div>
+      `).join("");
+    });
+
+    function renderArchiveSection(data) {
+      const videosContainer = document.getElementById("archiveVideosContainer");
+      const photosContainer = document.getElementById("archivePhotosContainer");
+
+      const videos = Array.isArray(data.archiveVideos) && data.archiveVideos.length > 0 ? data.archiveVideos : [
+        {
+          title: "Fest 2025",
+          label: "2025 m. įrašas",
+          url: "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/A%CC%A8z%CC%8Cuolynas%20International%20Film%20Festival%202025.mp4?alt=media&token=f62b9379-1600-456c-8d17-6f4e1f062017"
+        },
+        {
+          title: "Fest 2024",
+          label: "2024 m. įrašas",
+          url: "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/The%20A%CC%A8z%CC%8Cuolynas%20Film%20Festival%202024.mp4?alt=media&token=cf0417c4-0ffd-4d70-b318-3f9a5e2c81f0"
+        }
+      ];
+
+      videosContainer.innerHTML = videos.map((v) => `
+        <div class="archive-card">
+          <div class="archive-card-header">
+            <span class="archive-year">${v.title || 'Archyvas'}</span>
+            <span class="badge badge-accepted">${v.label || 'Vaizdo įrašas'}</span>
+          </div>
+          <div class="video-frame-wrap">
+            <div class="video-play-indicator">
+              <svg style="width:12px; height:12px; fill:currentColor; margin-left:2px;" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            ${createMediaEmbed(v.url)}
+          </div>
+        </div>
+      `).join("");
+
+      galleryPhotosCache = Array.isArray(data.archivePhotos) && data.archivePhotos.length > 0 ? data.archivePhotos : [
+        {
+          caption: "Akimirkos iš 2025 m. festivalio ceremonijos",
+          url: "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3458.jpeg?alt=media&token=224af1bd-25ff-494e-8136-fbf330d3ad5b"
+        },
+        {
+          caption: "Festivalio laureatai ir dalyviai 2025 m.",
+          url: "https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/IMG_3459.jpeg?alt=media&token=dfdda212-9ea6-433f-af80-8c5b5b57f361"
+        }
+      ];
+
+      photosContainer.innerHTML = galleryPhotosCache.map((p, idx) => `
+        <div class="gallery-item" onclick="openLightbox(${idx})">
+          <div class="gallery-item-media">
+            <img src="${p.url}" alt="${p.caption || 'Nuotrauka'}" loading="lazy">
+            <div class="gallery-overlay-hint"><span>Žiūrėti</span></div>
+          </div>
+          <div class="gallery-caption">${p.caption || ''}</div>
+        </div>
+      `).join("");
+    }
+
+    function openLightbox(idx) {
+      if (!galleryPhotosCache[idx]) return;
+      currentLightboxIdx = idx;
+      const modal = document.getElementById("lightboxModal");
+      document.getElementById("lightboxImg").src = galleryPhotosCache[idx].url;
+      document.getElementById("lightboxCaption").textContent = galleryPhotosCache[idx].caption || "";
+      const counter = document.getElementById("lightboxCounter");
+      if (counter) {
+        counter.textContent = `${idx + 1} / ${galleryPhotosCache.length}`;
+      }
+      modal.classList.add("active");
+    }
+
+    function openLightboxFromSrc(src, caption) {
+      const modal = document.getElementById("lightboxModal");
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightboxCaption").textContent = caption || "";
+      const counter = document.getElementById("lightboxCounter");
+      if (counter) {
+        counter.textContent = "1 / 1";
+      }
+      modal.classList.add("active");
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById("lightboxModal");
+      modal.classList.remove("active");
+      document.getElementById("lightboxImg").src = "";
+    }
+
+    function stepLightbox(direction) {
+      if (!galleryPhotosCache.length) return;
+      currentLightboxIdx = (currentLightboxIdx + direction + galleryPhotosCache.length) % galleryPhotosCache.length;
+      openLightbox(currentLightboxIdx);
+    }
+
+    document.getElementById("lightboxModal").addEventListener("click", (e) => {
+      if (e.target === document.getElementById("lightboxModal")) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const lb = document.getElementById("lightboxModal");
+      if (!lb.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") stepLightbox(-1);
+      if (e.key === "ArrowRight") stepLightbox(1);
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    document.getElementById("lightboxModal").addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    document.getElementById("lightboxModal").addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) stepLightbox(1);
+      if (touchEndX - touchStartX > 50) stepLightbox(-1);
+    }, { passive: true });
+
+    db.collection("submissions").onSnapshot((snapshot) => {
+      filmsCache = [];
+      snapshot.forEach((doc) => {
+        filmsCache.push({ id: doc.id, ...doc.data() });
+      });
+      renderWinnersSection();
+      renderFilmsGallery();
+    });
+
+    function renderWinnersSection() {
+      const container = document.getElementById("winnersListContainer");
+      if (!container) return;
+      const winners = filmsCache.filter((f) => f.isWinner === true);
+      if (winners.length === 0) {
+        container.innerHTML = '<div class="empty-state-notice">Oficialūs festivalio laureatai netrukus bus paskelbti.</div>';
+        return;
+      }
+      container.innerHTML = winners.map((w) => `
+        <div class="winner-card">
+          <div class="winner-badge">${w.awardTitle || 'Laureatas'}</div>
+          <div class="winner-title">${w.filmTitle || ''}</div>
+          <div class="winner-meta">
+            <div><strong>${w.name || ''}</strong></div>
+            <div>${w.institution || w.location || ''}</div>
+            <div>${w.category || ''}</div>
+          </div>
+          <button class="btn-preview" onclick="openPublicModal('${w.id}')">
+            PERŽIŪRĖTI FILMĄ
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function renderFilmsGallery() {
+      const container = document.getElementById("filmsGalleryContainer");
+      if (!container) return;
+      const eligible = filmsCache.filter((f) => f.inVoting === true);
+      if (eligible.length === 0) {
+        container.innerHTML = '<div class="empty-state-notice">Šiuo metu nėra filmų, dalyvaujančių balsavime.</div>';
+        return;
+      }
+
+      const totalVotes = eligible.reduce((acc, curr) => acc + (curr.votesCount || 0), 0);
+      const userVotedFilmId = localStorage.getItem("festival_voted_film_id");
+
+      container.innerHTML = eligible.map((film) => {
+        const votes = film.votesCount || 0;
+        const pct = totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+        const isThisFilmVoted = userVotedFilmId === film.id;
+        const isUserAlreadyVoted = Boolean(userVotedFilmId);
+
+        let voteBtnText = "Balsuoti už šį filmą";
+        let voteBtnClass = "btn-vote";
+        let voteBtnDisabled = false;
+
+        if (isThisFilmVoted) {
+          voteBtnText = "Jūsų balsas atiduotas";
+          voteBtnClass = "btn-vote btn-voted";
+          voteBtnDisabled = true;
+        } else if (isUserAlreadyVoted) {
+          voteBtnText = "Balsas jau panaudotas";
+          voteBtnClass = "btn-vote";
+          voteBtnDisabled = true;
+        }
+
+        return `
+          <div class="film-card">
+            <div>
+              <div class="film-card-thumb">
+                <video src="${film.videoUrl || ''}" preload="metadata" muted playsinline></video>
+              </div>
+              <div class="film-card-title">${film.filmTitle || ''}</div>
+              <div class="film-card-meta">
+                ${film.name || ''}<br>
+                ${film.category || ''} • ${film.location || ''}
+              </div>
+            </div>
+            <div>
+              <button class="btn-preview" onclick="openPublicModal('${film.id}')">
+                PERŽIŪRĖTI FILMĄ
+              </button>
+              <div class="vote-box">
+                <div class="vote-stats">
+                  <span>Publikos balsai</span>
+                  <span class="vote-num" id="voteCount_${film.id}">${votes} (${pct}%)</span>
+                </div>
+                <div class="vote-bar-bg">
+                  <div class="vote-bar-fill" id="voteFill_${film.id}"></div>
+                </div>
+                <button class="${voteBtnClass}" id="voteBtn_${film.id}" onclick="submitVote('${film.id}')" ${voteBtnDisabled ? "disabled" : ""}>
+                  ${voteBtnText}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      eligible.forEach((film) => {
+        const votes = film.votesCount || 0;
+        const pct = totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+        const bar = document.getElementById("voteFill_" + film.id);
+        if (bar) bar.style.width = pct + "%";
+      });
+    }
+
+    async function submitVote(filmId) {
+      const existingVote = localStorage.getItem("festival_voted_film_id");
+      if (existingVote) {
+        showToast("Jūs jau esate atidavę savo vienintelį festivalio balsą!", "error");
+        return;
+      }
+
+      const btn = document.getElementById("voteBtn_" + filmId);
+      if (btn) btn.disabled = true;
+
+      try {
+        const user = auth.currentUser || (await auth.signInAnonymously()).user;
+        const uid = user.uid;
+
+        const filmRef = db.collection("submissions").doc(filmId);
+        const voteAuditRef = db.collection("submissions").doc(filmId).collection("votes").doc(uid);
+
+        await db.runTransaction(async (transaction) => {
+          const voteDoc = await transaction.get(voteAuditRef);
+          if (voteDoc.exists) {
+            throw new Error("already-voted");
+          }
+          transaction.set(voteAuditRef, {
+            votedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          transaction.update(filmRef, {
+            votesCount: firebase.firestore.FieldValue.increment(1)
+          });
+        });
+
+        localStorage.setItem("festival_voted_film_id", filmId);
+
+        const countElem = document.getElementById("voteCount_" + filmId);
+        if (countElem) {
+          countElem.classList.add("pulse");
+          setTimeout(() => countElem.classList.remove("pulse"), 500);
+        }
+
+        renderFilmsGallery();
+        showToast("Dėkojame! Jūsų balsas sėkmingai įskaitytas.");
+      } catch (err) {
+        if (err.message === "already-voted") {
+          localStorage.setItem("festival_voted_film_id", filmId);
+          renderFilmsGallery();
+          showToast("Jūs jau atidavėte savo balsą šiame festivalyje.", "error");
+        } else {
+          console.error(err);
+          showToast("Klaida balsuojant. Bandykite vėliau.", "error");
+          if (btn) btn.disabled = false;
+        }
+      }
+    }
+
+    function openPublicModal(id) {
+      const film = filmsCache.find((f) => f.id === id);
+      if (!film) return;
+
+      document.getElementById("publicModalTitle").textContent = film.filmTitle || "";
+      document.getElementById("publicModalAuthor").textContent = film.name || "";
+      document.getElementById("publicModalCategory").textContent = `${film.age || ''} m. | ${film.category || ''}`;
+      document.getElementById("publicModalLocation").textContent = film.location || "";
+      document.getElementById("publicModalInstitution").textContent = film.institution || "-";
+      document.getElementById("publicModalDevice").textContent = film.deviceModel || "-";
+      document.getElementById("publicModalDuration").textContent = film.videoDurationSeconds || "-";
+      document.getElementById("publicModalSynopsis").textContent = film.synopsis || "-";
+
+      const video = document.getElementById("publicModalVideo");
+      video.src = film.videoUrl || "";
+      document.getElementById("publicPreviewModal").classList.add("active");
+    }
+
+    function closePublicModal() {
+      const modal = document.getElementById("publicPreviewModal");
+      const video = document.getElementById("publicModalVideo");
+      modal.classList.remove("active");
+      video.pause();
+      video.src = "";
+    }
+
+    document.getElementById("publicPreviewModal").addEventListener("click", (e) => {
+      if (e.target === document.getElementById("publicPreviewModal")) {
+        closePublicModal();
+      }
+    });
+
+    let verifiedVideoFile = null;
+    let videoDurationSeconds = 0;
+
+    const ageInput = document.getElementById("participantAge");
+    const catSelect = document.getElementById("participantCategory");
+    ageInput.addEventListener("input", (e) => {
+      const val = parseInt(e.target.value, 10);
+      if (val >= 10 && val <= 13) catSelect.value = "Category I (10-13)";
+      else if (val >= 14 && val <= 18) catSelect.value = "Category II (14-18)";
+    });
+
+    const fileInput = document.getElementById("videoFileInput");
+    const feedback = document.getElementById("uploadFeedback");
+
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const videoElement = document.createElement("video");
+      videoElement.preload = "metadata";
+      videoElement.src = URL.createObjectURL(file);
+
+      videoElement.onloadedmetadata = () => {
+        window.URL.revokeObjectURL(videoElement.src);
+        videoDurationSeconds = Math.round(videoElement.duration);
+
+        if (videoDurationSeconds > 180) {
+          verifiedVideoFile = null;
+          fileInput.value = "";
+          feedback.className = "drop-alert error";
+          feedback.textContent = `Klaida: filmo trukmė yra ${videoDurationSeconds} s. Leidžiama griežtai iki 180 s (3 min.)!`;
+        } else {
+          verifiedVideoFile = file;
+          feedback.className = "drop-alert success";
+          feedback.textContent = `Trukmė tinkama: ${videoDurationSeconds} s (${file.name})`;
+        }
+      };
+    });
+
+    const form = document.getElementById("submissionForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const progressContainer = document.getElementById("progressContainer");
+    const progressFill = document.getElementById("progressFill");
+    const progressStatus = document.getElementById("progressStatus");
+    const formSuccessDisplay = document.getElementById("formSuccessDisplay");
+
+    function resetFormView() {
+      if (formSuccessDisplay) formSuccessDisplay.classList.add("d-none");
+      if (form) {
+        form.classList.remove("d-none");
+        form.reset();
+      }
+      verifiedVideoFile = null;
+      if (feedback) feedback.textContent = "";
+      if (progressContainer) progressContainer.classList.remove("active");
+      if (progressFill) progressFill.style.width = "0%";
+      if (submitBtn) submitBtn.disabled = false;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!verifiedVideoFile) {
+        showToast("Prašome pasirinkti vaizdo įrašą, kurio trukmė neviršija 3 minučių!", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      progressContainer.classList.add("active");
+
+      const name = document.getElementById("participantName").value.trim();
+      const email = document.getElementById("participantEmail").value.trim();
+      const age = Number(document.getElementById("participantAge").value);
+      const category = document.getElementById("participantCategory").value;
+      const location = document.getElementById("countryCity").value.trim();
+      const institution = document.getElementById("institution").value.trim();
+      const filmTitle = document.getElementById("filmTitle").value.trim();
+      const deviceModel = document.getElementById("deviceModel").value.trim();
+      const synopsis = document.getElementById("synopsis").value.trim();
+
+      try {
+        const ext = verifiedVideoFile.name.split(".").pop();
+        const safeName = name.replace(/[^a-zA-Z0-9]/g, "_");
+        const storagePath = `submissions/${Date.now()}_${safeName}.${ext}`;
+        const storageRef = storage.ref(storagePath);
+        const uploadTask = storageRef.put(verifiedVideoFile);
+
+        uploadTask.on("state_changed",
+          (snap) => {
+            const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+            progressFill.style.width = pct + "%";
+            progressStatus.textContent = `Įkeliama... ${pct}%`;
+          },
+          (err) => {
+            console.error(err);
+            showToast("Klaida įkeliant vaizdo įrašą: " + err.message, "error");
+            submitBtn.disabled = false;
+          },
+          async () => {
+            const videoUrl = await uploadTask.snapshot.ref.getDownloadURL();
+
+            const submissionData = {
+              name,
+              email,
+              age,
+              category,
+              location,
+              institution,
+              filmTitle,
+              deviceModel,
+              synopsis,
+              videoUrl,
+              videoDurationSeconds,
+              storagePath,
+              votesCount: 0,
+              inVoting: false,
+              status: "submitted",
+              submissionLang: "lt",
+              submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            await db.collection("submissions").add(submissionData);
+
+            if (typeof generateEmailHtml === "function") {
+              const emailHtml = generateEmailHtml("lt", "submissionReceived", {
+                name,
+                filmTitle,
+                category
+              });
+
+              await db.collection("mail").add({
+                to: [email],
+                message: {
+                  subject: emailTexts.lt.submissionReceived.sub,
+                  html: emailHtml
+                }
+              });
+            }
+
+            if (typeof generateAdminNotificationHtml === "function") {
+              const adminEmailHtml = generateAdminNotificationHtml("lt", submissionData);
+
+              await db.collection("mail").add({
+                to: ["azuolynasfilmfestival@gmail.com"],
+                message: {
+                  subject: `Nauja paraiška: ${filmTitle} (${name})`,
+                  html: adminEmailHtml
+                }
+              });
+            }
+
+            form.classList.add("d-none");
+            formSuccessDisplay.classList.remove("d-none");
+            showToast("Dėkojame! Jūsų filmo paraiška sėkmingai gauta.");
+          }
+        );
+      } catch (error) {
+        console.error(error);
+        showToast("Įvyko klaida siunčiant paraišką. Bandykite vėliau.", "error");
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

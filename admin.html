@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Valdymo Skydas</title>
+  <link rel="icon" type="image/webp" href="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+</head>
+<body class="admin-viewport">
+
+  <div id="loginSection" class="admin-auth-container">
+    <div class="admin-auth-card">
+      <img src="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media" alt="Logo" class="admin-auth-logo">
+      <h2 class="admin-auth-title">Valdymo Skydas</h2>
+      <p class="admin-auth-sub">Autorizuota prieiga</p>
+
+      <div id="loginFormWrapper">
+        <form id="adminAuthForm">
+          <div class="input-cell">
+            <label for="loginEmail">Identifikatorius</label>
+            <input type="email" id="loginEmail" class="field" autocomplete="username" required>
+          </div>
+          <div class="input-cell">
+            <label for="loginPassword">Slaptažodis</label>
+            <input type="password" id="loginPassword" class="field" autocomplete="current-password" required>
+          </div>
+          <div id="authErrMsg" class="auth-error"></div>
+          <button type="submit" id="loginSubmitBtn" class="btn-solid btn-full">Prisijungti</button>
+        </form>
+        <div style="margin-top:14px;">
+          <button type="button" id="showForgotBtn" class="btn-outline btn-full btn-sm">Nustatyti / Pamiršau slaptažodį</button>
+        </div>
+      </div>
+
+      <div id="forgotFormWrapper" class="d-none">
+        <div class="input-cell">
+          <label for="resetEmail">Autorizuotas el. pašto adresas</label>
+          <input type="email" id="resetEmail" class="field" placeholder="" required>
+        </div>
+        <div id="resetErrMsg" class="auth-error"></div>
+        <div id="resetSuccessMsg" class="drop-alert success d-none" style="margin-bottom:14px;"></div>
+        <button type="button" id="sendResetLinkBtn" class="btn-solid btn-full" style="margin-bottom:10px;">Gauti slaptažodžio nustatymo nuorodą</button>
+        <button type="button" id="backToLoginBtn" class="btn-outline btn-full btn-sm">Grįžti į prisijungimą</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="panelSection" class="d-none" style="flex-direction:column; flex:1;">
+    <div class="admin-topbar">
+      <div class="admin-brand">
+        <img src="https://firebasestorage.googleapis.com/v0/b/azuolynas-film-fest.firebasestorage.app/o/azuolynasfilmfest.webp?alt=media" alt="Logo" class="admin-brand-logo">
+        <span class="admin-brand-title">Ąžuolynas Fest Skydas</span>
+      </div>
+
+      <div class="admin-nav-group">
+        <button id="tabSubmissionsBtn" class="admin-nav-item active">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Paraiškos</span>
+        </button>
+        <button id="tabEditionsBtn" class="admin-nav-item">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>Metų Puslapiai (FEST)</span>
+        </button>
+        <button id="tabArchiveBtn" class="admin-nav-item">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+          <span>Archyvas & Medija</span>
+        </button>
+        <button id="tabSettingsBtn" class="admin-nav-item">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Nustatymai & Skiltys</span>
+        </button>
+      </div>
+
+      <div>
+        <button id="logoutBtn" class="btn-outline btn-sm">Atsijungti</button>
+      </div>
+    </div>
+
+    <div class="admin-main container">
+      <div id="submissionsTab">
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-label">Viso paraiškų</div>
+            <div class="metric-num" id="statTotal">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Priimti filmai</div>
+            <div class="metric-num" id="statAccepted">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Dalyvauja balsavime</div>
+            <div class="metric-num" id="statVoting">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Pusfinalis / Finalas</div>
+            <div class="metric-num" id="statFinals">0</div>
+          </div>
+        </div>
+
+        <div class="admin-winner-panel">
+          <h3 class="content-card-title">Laimėtojų ir Nominacijų Valdymas</h3>
+          <div class="input-row">
+            <div class="input-cell">
+              <label for="adminSelectFilm">Pasirinkite filmą</label>
+              <select id="adminSelectFilm" class="field"></select>
+            </div>
+            <div class="input-cell">
+              <label for="adminAwardTitle">Nominacija / Laureato vieta</label>
+              <input type="text" id="adminAwardTitle" class="field" placeholder="pvz. 1-oji vieta (I Kat.) arba Žiūrovų simpatijų prizas">
+            </div>
+          </div>
+          <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+            <button id="assignWinnerBtn" class="btn-solid btn-sm">Paskelbti Laimėtoju</button>
+          </div>
+          <h4>Paskelbti Festivalio Laureatai</h4>
+          <div id="adminWinnersList"></div>
+        </div>
+
+        <div class="table-toolbar">
+          <input type="text" id="filterSearch" class="field toolbar-search" placeholder="Ieškoti pagal autorių, filmą...">
+          <select id="filterCategory" class="field toolbar-select">
+            <option value="all">Visos kategorijos</option>
+            <option value="Category I (10-13)">I Kategorija (10-13)</option>
+            <option value="Category II (14-18)">II Kategorija (14-18)</option>
+          </select>
+          <select id="filterStatus" class="field toolbar-select">
+            <option value="all">Visi statusai</option>
+            <option value="submitted">Pateikta</option>
+            <option value="accepted">Priimta</option>
+            <option value="semifinal">Pusfinalis</option>
+            <option value="final">Finalas</option>
+            <option value="winner">Laureatas</option>
+            <option value="rejected">Atmesta</option>
+          </select>
+          <select id="filterVoting" class="field toolbar-select">
+            <option value="all">Balsavimo atranka (Visi)</option>
+            <option value="inVoting">Tik dalyvaujantys balsavime</option>
+            <option value="notInVoting">Nedalyvaujantys balsavime</option>
+          </select>
+        </div>
+
+        <div class="table-box">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Kūrėjas</th>
+                <th>Amžius / Kat.</th>
+                <th>Filmas</th>
+                <th>Balsai</th>
+                <th>Balsavime</th>
+                <th>Trukmė</th>
+                <th>Statusas</th>
+                <th>Veiksmai</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="editionsTab" class="d-none">
+        <div class="content-card" style="margin-bottom:28px;">
+          <h4>Visi Pridėti Metų Puslapiai (FEST)</h4>
+          <p class="content-card-sub">Žemiau pateikiami visi festivalio leidiniai. Paspauskite „Redaguoti“, kad pakeistumėte tekstus, nuotraukas ar nugalėtojus, arba kurkite naują.</p>
+          <div id="adminEditionsList" class="admin-media-grid"></div>
+        </div>
+
+        <div class="content-card" id="editionFormAnchor">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+            <h3 class="content-card-title" id="editionFormHeading" style="margin-bottom:0;">Pridėti / Redaguoti Metų Leidinį</h3>
+            <button type="button" id="resetEditionFormBtn" class="btn-outline btn-xs">Kurti Naują Leidinį</button>
+          </div>
+          <p class="content-card-sub">Redaguokite pasirinktų metų tekstus, fono nuotrauką, nugalėtojų sąrašą ir ceremonijos vaizdo įrašą.</p>
+
+          <div class="input-row">
+            <div class="input-cell">
+              <label for="edYearSelect">Metai (Identifikatorius) *</label>
+              <input type="text" id="edYearSelect" class="field" placeholder="2026" required>
+            </div>
+            <div class="input-cell">
+              <label for="edTitle">Puslapio Pavadinimas *</label>
+              <input type="text" id="edTitle" class="field" placeholder="FEST 2026" required>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-cell">
+              <label for="edDate">Renginio Data *</label>
+              <input type="text" id="edDate" class="field" placeholder="2026 m. balandžio 17 d.">
+            </div>
+            <div class="input-cell">
+              <label for="edHeroImage">Hero Fono Nuotraukos URL</label>
+              <input type="url" id="edHeroImage" class="field" placeholder="https://firebasestorage...">
+            </div>
+          </div>
+
+          <div class="input-cell">
+            <label for="edSubtitle">Paantraštė / Pagrindinis šūkis</label>
+            <input type="text" id="edSubtitle" class="field" placeholder="Kino šventė Kauno tarptautinėje gimnazijoje: net keturi žemynai viename ekrane!">
+          </div>
+
+          <div class="input-cell">
+            <label for="edStory">Apie festivalį (išsamus pasakojimas)</label>
+            <textarea id="edStory" class="field" style="min-height:120px;"></textarea>
+          </div>
+
+          <div class="input-row">
+            <div class="input-cell">
+              <label for="edVideoUrl">Ceremonijos vaizdo įrašo URL (YouTube INGtv arba MP4)</label>
+              <input type="url" id="edVideoUrl" class="field" placeholder="https://www.youtube.com/watch?v=...">
+            </div>
+            <div class="input-cell">
+              <label for="edPageUrl">Nuoroda į puslapį svetainėje</label>
+              <input type="text" id="edPageUrl" class="field" placeholder="azuolynas-fest-2026.html">
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:14px;">
+            <button type="button" id="saveEditionBtn" class="btn-solid">Išsaugoti Metų Puslapio Duomenis</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="archiveTab" class="d-none">
+        <div class="two-col-grid">
+          <div class="content-card">
+            <h3 class="content-card-title">Pridėti Vaizdo Įrašą (Retrospektyva)</h3>
+            <p class="content-card-sub">Pridėkite ankstesnių metų festivalio vaizdo įrašus (pvz. Fest 2025, Fest 2024).</p>
+
+            <div class="input-cell">
+              <label for="arcVidTitle">Pavadinimas / Metai *</label>
+              <input type="text" id="arcVidTitle" class="field" placeholder="pvz. Fest 2025">
+            </div>
+
+            <div class="input-cell">
+              <label for="arcVidLabel">Žyma / Aprašymas</label>
+              <input type="text" id="arcVidLabel" class="field" placeholder="pvz. 2025 m. įrašas">
+            </div>
+
+            <div class="input-cell">
+              <label for="arcVidUrl">Tiesioginė URL nuoroda (MP4 arba YouTube)</label>
+              <input type="url" id="arcVidUrl" class="field" placeholder="https://firebasestorage... arba https://youtube...">
+            </div>
+
+            <div class="input-cell">
+              <label>Arba įkelkite video failą iš įrenginio</label>
+              <div class="drop-area">
+                <div class="drop-title">Pasirinkti video failą</div>
+                <input type="file" id="arcVidFile" accept="video/mp4,video/quicktime,video/webm">
+              </div>
+              <div id="arcVidFileStatus" class="file-status-label"></div>
+            </div>
+
+            <div class="bar-box" id="arcVidProgressContainer">
+              <div class="bar-line"><div class="bar-fill" id="arcVidProgressFill"></div></div>
+              <div id="arcVidProgressStatus" class="bar-status-text">0%</div>
+            </div>
+
+            <button id="arcVidSaveBtn" class="btn-solid btn-full">Pridėti Į Vaizdo Įrašų Archyvą</button>
+          </div>
+
+          <div class="content-card">
+            <h3 class="content-card-title">Pridėti Festivalio Nuotrauką</h3>
+            <p class="content-card-sub">Pridėkite festivalio akimirkų, dalyvių ar apdovanojimų nuotraukas.</p>
+
+            <div class="input-cell">
+              <label for="arcImgCaption">Nuotraukos aprašymas / Paraštė *</label>
+              <input type="text" id="arcImgCaption" class="field" placeholder="pvz. Akimirkos iš 2025 m. ceremonijos">
+            </div>
+
+            <div class="input-cell">
+              <label for="arcImgUrl">Tiesioginė nuotraukos URL nuoroda</label>
+              <input type="url" id="arcImgUrl" class="field" placeholder="https://firebasestorage...">
+            </div>
+
+            <div class="input-cell">
+              <label>Arba įkelkite nuotraukos failą</label>
+              <div class="drop-area">
+                <div class="drop-title">Pasirinkti nuotraukos failą</div>
+                <input type="file" id="arcImgFile" accept="image/jpeg,image/png,image/webp">
+              </div>
+              <div id="arcImgFileStatus" class="file-status-label"></div>
+            </div>
+
+            <div class="bar-box" id="arcImgProgressContainer">
+              <div class="bar-line"><div class="bar-fill" id="arcImgProgressFill"></div></div>
+              <div id="arcImgProgressStatus" class="bar-status-text">0%</div>
+            </div>
+
+            <button id="arcImgSaveBtn" class="btn-solid btn-full">Pridėti Į Nuotraukų Galeriją</button>
+
+            <div style="border-top:1px solid var(--border-color); margin-top:24px; padding-top:20px;">
+              <h4>Oficiali Prizų Nuotrauka</h4>
+              <div class="input-cell">
+                <label for="arcPrizesUrl">Prizų nuotraukos URL</label>
+                <input type="url" id="arcPrizesUrl" class="field" placeholder="https://firebasestorage...">
+              </div>
+              <button id="arcPrizesSaveBtn" class="btn-outline btn-full">Atnaujinti Prizų Nuotrauką</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h4>Esami Archyvo Vaizdo Įrašai</h4>
+          <div id="adminArchiveVideosList" class="admin-media-grid" style="margin-top:14px;"></div>
+        </div>
+
+        <div class="content-card">
+          <h4>Esamos Archyvo Nuotraukos</h4>
+          <div id="adminArchivePhotosList" class="admin-media-grid" style="margin-top:14px;"></div>
+        </div>
+      </div>
+
+      <div id="settingsTab" class="d-none">
+        <div id="adminInviteCard" class="content-card d-none">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <h3 class="content-card-title" style="margin-bottom:0;">Prieigos Pakvietimų Valdymas</h3>
+            <span class="badge badge-winner" style="font-size:0.7rem;">Tik Vyr. Administratoriui</span>
+          </div>
+          <p class="content-card-sub">Išsiųskite slaptažodžio nustatymo nuorodą autorizuotam el. pašto adresui.</p>
+          <div class="input-row">
+            <div class="input-cell">
+              <label for="inviteAdminEmail">El. pašto adresas *</label>
+              <input type="email" id="inviteAdminEmail" class="field" placeholder="">
+            </div>
+            <div class="input-cell" style="justify-content:flex-end;">
+              <button type="button" id="sendInviteBtn" class="btn-solid btn-sm">Išsiųsti prieigos nuorodą</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h3 class="content-card-title">Svetainės Skilčių Matomumas (Viešas rodymas)</h3>
+          <p class="content-card-sub">Valdykite, kurios skiltys ir jų meniu nuorodos yra rodomos viešiems lankytojams.</p>
+          <div class="switch-grid">
+            <label class="switch-label">
+              <input type="checkbox" id="cfgShowVoting" class="switch-input">
+              <span class="switch-slider"></span>
+              <div class="switch-text">
+                <span class="switch-title">Balsavimo skiltis</span>
+                <span class="switch-sub">Rodo konkursinius filmus ir balsavimą</span>
+              </div>
+            </label>
+            <label class="switch-label">
+              <input type="checkbox" id="cfgShowResults" class="switch-input">
+              <span class="switch-slider"></span>
+              <div class="switch-text">
+                <span class="switch-title">Rezultatų skiltis</span>
+                <span class="switch-sub">Rodo paskelbtus laureatus</span>
+              </div>
+            </label>
+            <label class="switch-label">
+              <input type="checkbox" id="cfgShowScreening" class="switch-input">
+              <span class="switch-slider"></span>
+              <div class="switch-text">
+                <span class="switch-title">Peržiūros skiltis</span>
+                <span class="switch-sub">Rodo festivalio vaizdo įrašo langą</span>
+              </div>
+            </label>
+            <label class="switch-label">
+              <input type="checkbox" id="cfgShowSubmit" class="switch-input">
+              <span class="switch-slider"></span>
+              <div class="switch-text">
+                <span class="switch-title">Registracijos forma</span>
+                <span class="switch-sub">Leidžia teikti naujus filmus</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h3 class="content-card-title">Svetainėje Rodomas Vaizdo Įrašas</h3>
+          <div class="input-cell" style="margin-bottom:0;">
+            <label for="cfgRecordingUrl">Vaizdo įrašo URL (Tiesioginė MP4 nuoroda arba YouTube nuoroda)</label>
+            <input type="text" id="cfgRecordingUrl" class="field" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="content-card">
+            <h4>Lietuviška versija (LT)</h4>
+            <div class="input-cell">
+              <label for="cfgLtTopic">Festivalio tema</label>
+              <input type="text" id="cfgLtTopic" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtAbout">Apie festivalį (tekstas)</label>
+              <textarea id="cfgLtAbout" class="field"></textarea>
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtHeroBadge">Hero žyma</label>
+              <input type="text" id="cfgLtHeroBadge" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtDates">Paraiškų datos</label>
+              <input type="text" id="cfgLtDates" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtEvent">Renginio data ir vieta</label>
+              <input type="text" id="cfgLtEvent" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtTarget">Dalyvių auditorija</label>
+              <input type="text" id="cfgLtTarget" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgLtRecordingPh">Laukimo pranešimas</label>
+              <input type="text" id="cfgLtRecordingPh" class="field">
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h4>Angliška versija (EN)</h4>
+            <div class="input-cell">
+              <label for="cfgEnTopic">Festival Topic</label>
+              <input type="text" id="cfgEnTopic" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnAbout">About Festival (text)</label>
+              <textarea id="cfgEnAbout" class="field"></textarea>
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnHeroBadge">Hero Badge</label>
+              <input type="text" id="cfgEnHeroBadge" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnDates">Submissions Dates</label>
+              <input type="text" id="cfgEnDates" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnEvent">Event Date & Location</label>
+              <input type="text" id="cfgEnEvent" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnTarget">Target Audience</label>
+              <input type="text" id="cfgEnTarget" class="field">
+            </div>
+            <div class="input-cell">
+              <label for="cfgEnRecordingPh">Screening Placeholder Text</label>
+              <input type="text" id="cfgEnRecordingPh" class="field">
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end;">
+          <button id="saveSettingsBtn" class="btn-solid">Išsaugoti Pakeitimus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="entryModal" class="modal-curtain">
+    <div class="modal-dialog">
+      <div class="modal-title-row">
+        <h3 id="mTitle" class="modal-title">Filmo peržiūra</h3>
+        <button id="modalCloseBtn" class="modal-close">&times;</button>
+      </div>
+
+      <video id="mVideo" class="modal-video-frame" controls playsinline></video>
+
+      <div class="modal-actions-bar">
+        <button id="mDeleteBtn" class="btn-delete">Ištrinti paraišką</button>
+        <a id="mDownloadLink" href="" target="_blank" download class="btn-outline btn-sm">Atsisiųsti video</a>
+      </div>
+
+      <div class="modal-details">
+        <p><strong>Autorius:</strong> <span id="mAuthor"></span> (<span id="mEmail"></span>)</p>
+        <p><strong>Amžius / Įstaiga:</strong> <span id="mAgeInst"></span></p>
+        <p><strong>Vieta:</strong> <span id="mLocation"></span></p>
+        <p><strong>Kameros modelis:</strong> <span id="mDevice"></span></p>
+        <p><strong>Trukmė:</strong> <span id="mDuration"></span> s</p>
+        <p><strong>Publikos balsai:</strong> <span id="mVotes">0</span></p>
+        <p class="modal-synopsis-label">Sinopsis / Idėja:</p>
+        <p id="mSynopsis" class="modal-synopsis-text"></p>
+      </div>
+
+      <div class="modal-manage-box">
+        <div style="margin-bottom:14px;">
+          <label class="consent-line">
+            <input type="checkbox" id="mInVoting">
+            <span style="color:var(--text-color); font-weight:500;">Dalyvauja balsavime (rodomas viešoje balsavimo skiltyje)</span>
+          </label>
+        </div>
+
+        <div class="input-row">
+          <div class="input-cell">
+            <label for="mNewStatus">Keisti statusą:</label>
+            <select id="mNewStatus" class="field">
+              <option value="submitted">Pateikta (Submitted)</option>
+              <option value="accepted">Priimta (Accepted)</option>
+              <option value="semifinal">Pusfinalis (Semi-Final)</option>
+              <option value="final">Finalas (Final)</option>
+              <option value="winner">Laureatas (Winner)</option>
+              <option value="rejected">Atmesta (Rejected)</option>
+            </select>
+          </div>
+          <div class="input-cell">
+            <label for="mEmailTemplate">Siunčiamas laiškas:</label>
+            <select id="mEmailTemplate" class="field">
+              <option value="none">Nesiųsti el. laiško</option>
+              <option value="accepted">Priėmimo patvirtinimas</option>
+              <option value="semiFinalist">Pusfinalio žinia</option>
+              <option value="finalist">Finalo žinia</option>
+              <option value="winner">Nugalėtojo diplomas</option>
+              <option value="rejected">Neatrankos pranešimas</option>
+              <option value="eventReminder">Renginio įrašo priminimas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-cell">
+            <label for="mEmailLang">Laiško kalba:</label>
+            <select id="mEmailLang" class="field">
+              <option value="lt">Lietuvių (LT)</option>
+              <option value="en">English (EN)</option>
+            </select>
+          </div>
+          <div class="input-cell">
+            <label for="mStreamLink">Nuoroda laiške (nebūtina):</label>
+            <input type="url" id="mStreamLink" class="field" placeholder="https://azuolynasinternationalfilmfestival.github.io/">
+          </div>
+        </div>
+
+        <div class="input-cell">
+          <label for="mCustomText">Papildoma žinutė laiške (nebūtina):</label>
+          <textarea id="mCustomText" class="field"></textarea>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:8px;">
+          <button id="modalCancelBtn" class="btn-outline btn-sm">Atšaukti</button>
+          <button id="mSaveBtn" class="btn-solid btn-sm">Išsaugoti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="email-templates.js"></script>
+  <script type="module" src="js/admin-main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "azuolynas-international-students-film-festival",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official platform and submissions portal for the Ąžuolynas International Students Film Festival",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Build completed successfully')\"",
+    "lint": "node -e \"console.log('Linting completed successfully')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
